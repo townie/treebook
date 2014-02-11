@@ -11,11 +11,14 @@
     </div>
   <% end %>
 
-
+<div class="row">
+<div class="col-sm-3 well">
     <%= f.input :user_id, collection: User.all, label_method: :full_name %>
     <%= f.input :content %>
  
-  <div class="form-actions btn btn-danger">
-    <%= f.submit %>
+  <div class="form-actions btn btn-success">
+    <%= f.submit  %>
   </div>
+</div>
+ </div> 
 <% end %>
