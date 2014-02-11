@@ -1,6 +1,10 @@
 class StatusesController < ApplicationController
   before_action :set_status, only: [:show, :edit, :update, :destroy]
 
+  # def full_name
+  #   name= first_name + ' ' + last_name
+  #   return name
+  # end
   # GET /statuses
   # GET /statuses.json
   def index
@@ -71,8 +75,12 @@ class StatusesController < ApplicationController
       @status = Status.find(params[:id])
     end
 
+    def set_user
+      @status.user = User.find_by(@status.user_id)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def status_params
-      params.require(:status).permit(:first_name, :last_name, :profile, :content)
+ params.require(:status).permit( :user, :user_id, :content, :first_name, :last_name, :profile, user_attributes: [:first_name])
     end
 end
