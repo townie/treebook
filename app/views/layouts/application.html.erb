@@ -29,6 +29,14 @@
 	</div>	
 
 	<div class="container" id="bodytag">
+	<% flash.each do |type, message| %>
+		<div class="alert alert-dismissable <%= flash_class type %>">
+		  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		  <%= message %>
+		</div>
+	<% end %>
+
+	
 
 		<%= yield %>
 		
